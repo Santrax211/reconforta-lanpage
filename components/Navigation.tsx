@@ -3,15 +3,15 @@ import Image from 'next/image'
 
 export function Navigation() {
   return (
-    <nav className="bg-[#0C1D33] text-white">
+    <nav className="bg-[#27201e] text-yellow-300 italic bold">
       <div className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
         <Image
               src="/images/logo.jpg"
               alt="Logo de la empresa"
-              width={120}
-              height={40}
-              className="w-auto h-12 sm:h-16 max-w-[200px] rounded mr-4"
+              width={150}
+              height={60}
+              className="w-auto h-12 sm:h-16 max-w-[200px] rounded rounded-full"
             />
           <div className="hidden md:flex space-x-6">
             <Link href="#inicio" className="hover:text-[#F7B32B]">Inicio</Link>
