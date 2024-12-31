@@ -59,7 +59,7 @@ export function SobreNosotros() {
               
               <div className="flex items-center gap-4">
                 <MapPin className="w-8 h-8 text-[#003366]" />
-                <span className="text-gray-700">Cobertura en todo Lima Metropolitana y Lurín.</span>
+                <span className="text-gray-700">Cobertura en todo Lima Metropolitana y Callao.</span>
               </div>
             </div>
           </div>

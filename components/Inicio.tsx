@@ -11,24 +11,24 @@ export function Inicio() {
         }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-white/15"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-20 text-center text-white">
-        <h2 className="text-2xl md:text-3xl italic mb-12 font-serif">
+        <h2 className="text-2xl md:text-4xl italic mb-12 font-serif text-black">
           "¡Transformamos el aprendizaje con dedicación y calidad!"
         </h2>
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#003366] mb-4">
+        <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-[#0c1843] mb-4">
           GRUPO "JAAS"
         </h1>
 
-        <div className="text-2xl md:text-3xl mb-8 font-mono">
+        <div className="text-2xl md:text-5xl mb-8 font-mono text-black">
           (CLASES Y ASESORIAS)
         </div>
 
-        <p className="max-w-4xl mx-auto text-lg md:text-xl font-medium">
+        <p className="max-w-4xl mx-auto text-lg md:text-3xl font-medium text-black">
           "En Grupo "JAAS", ofrecemos apoyos académicos diseñadas para
           satisfacer los requerimientos y necesidades de cada estudiante,
           desde primaria, secundaria, pregrado y postgrado"
