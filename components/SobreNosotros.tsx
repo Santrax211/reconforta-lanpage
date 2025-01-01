@@ -14,13 +14,13 @@ export function SobreNosotros() {
           Sobre nosotros
         </h2>
 
-        <div className="max-w-4xl mx-auto mb-12 text-gray-700 text-lg text-center leading-relaxed">
-          <p className="mb-6">
+        <div className="max-w-4xl mx-auto mb-12 text-gray-700 text-2xl text-center leading-relaxed">
+          <p className="mb-6 text-black">
             En "JAAS", somos un equipo de profesionales apasionados por la educación y la investigación,
             comprometidos con la excelencia académica. Nuestros objetivos es brindar clases particulares, asesorías
             académicas, y soluciones personalizadas para ayudarte a superar cualquier desafío educativo.
           </p>
-          <p>
+          <p className='text-black'>
             Tenemos la misión de apoyar a los estudiantes para que logren alcanzar su máximo potencial,
             ofreciéndoles herramientas prácticas y conocimientos fundamentales para lograr las metas académicas.
           </p>
@@ -43,23 +43,23 @@ export function SobreNosotros() {
             
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <Users className="w-8 h-8 text-[#003366]" />
-                <span className="text-gray-700">Profesores altamente capacitados y con experiencia.</span>
+                <Users className="w-8 h-8 text-[#2c972e]" />
+                <span className="text-gray-700 text-black">Profesores altamente capacitados y con experiencia.</span>
               </div>
               
               <div className="flex items-center gap-4">
-                <Target className="w-8 h-8 text-[#003366]" />
-                <span className="text-gray-700">Clases adaptadas a las necesidades específicas de cada estudiante.</span>
+                <Target className="w-8 h-8 text-[#2c972e]" />
+                <span className="text-gray-700 text-black">Clases adaptadas a las necesidades específicas de cada estudiante.</span>
               </div>
               
               <div className="flex items-center gap-4">
-                <Monitor className="w-8 h-8 text-[#003366]" />
-                <span className="text-gray-700">Modalidad presencial y virtual para mayor flexibilidad.</span>
+                <Monitor className="w-8 h-8 text-[#2c972e]" />
+                <span className="text-gray-700 text-black">Modalidad presencial y virtual para mayor flexibilidad.</span>
               </div>
               
               <div className="flex items-center gap-4">
-                <MapPin className="w-8 h-8 text-[#003366]" />
-                <span className="text-gray-700">Cobertura en todo Lima Metropolitana y Callao.</span>
+                <MapPin className="w-8 h-8 text-[#2c972e]" />
+                <span className="text-gray-700 text-black">Cobertura en todo Lima Metropolitana y Callao.</span>
               </div>
             </div>
           </div>
