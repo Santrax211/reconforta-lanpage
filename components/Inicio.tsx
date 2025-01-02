@@ -15,7 +15,7 @@ export function Inicio() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-20 text-center text-white">
+      <div className="relative z-10 container mx-auto px-6 py-20 text-center text-white mt-16">
         <h2 className="text-2xl md:text-4xl italic mb-12 font-serif text-black">
           "¡Transformamos el aprendizaje con dedicación y calidad!"
         </h2>
@@ -24,7 +24,7 @@ export function Inicio() {
           GRUPO "JAAS"
         </h1>
 
-        <div className="text-2xl md:text-5xl mb-8 font-mono text-black">
+        <div className="text-2xl md:text-5xl mb-12 font-mono text-black">
           (CLASES Y ASESORIAS)
         </div>
 

@@ -6,6 +6,23 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Facebook, Instagram, PhoneIcon as WhatsApp } from 'lucide-react'
+import { sendContactForm } from '@/app/actions/contact'
+import { useFormStatus } from 'react-dom'
+import { toast } from 'sonner'
+
+function SubmitButton() {
+  const { pending } = useFormStatus()
+  
+  return (
+    <Button 
+      type="submit"
+      className="w-full bg-[#F7B32B] hover:bg-[#F7B32B]/90 text-black font-semibold py-3"
+      disabled={pending}
+    >
+      {pending ? 'Enviando...' : 'ENVIAR MENSAJE'}
+    </Button>
+  )
+}
 
 export function Contactanos() {
   const [formData, setFormData] = useState({
@@ -14,28 +31,36 @@ export function Contactanos() {
     mensaje: ''
   })
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const response = await sendContactForm(formData)
+    
+    if (response.success) {
+      toast.success(response.message)
+      // Limpiar el formulario
+      setFormData({ nombre: '', email: '', mensaje: '' })
+    } else {
+      toast.error(response.message)
+    }
   }
 
   return (
     <section id="contactanos" className="relative">
       {/* Main Contact Section */}
-      <div className="min-h-screen py-20" 
+      <div className="py-16" 
         style={{
           backgroundColor: '#FDF5E6',
           backgroundImage: 'radial-gradient(#00000010 1px, transparent 1px)',
           backgroundSize: '20px 20px'
         }}>
         <div className="container mx-auto px-6">
-          <h2 className="text-5xl md:text-6xl font-bold text-[#003366] mb-16 text-center">
+          <h2 className="text-5xl md:text-6xl font-bold text-[#003366] mb-12 text-center italic">
             Contáctanos
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="relative h-[400px] w-full">
+          <div className="grid md:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
+            <div className="relative h-[300px] w-full">
               <Image
                 src="/images/contact-image.jpg"
                 alt="Asesoría personalizada"
@@ -44,18 +69,18 @@ export function Contactanos() {
               />
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">
                     Nombre
                   </label>
                   <Input
                     id="nombre"
+                    name="nombre"
                     value={formData.nombre}
                     onChange={(e) => setFormData({...formData, nombre: e.target.value})}
                     className="w-full"
-                    required
                   />
                 </div>
 
@@ -65,6 +90,7 @@ export function Contactanos() {
                   </label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -79,19 +105,15 @@ export function Contactanos() {
                   </label>
                   <Textarea
                     id="mensaje"
+                    name="mensaje"
                     value={formData.mensaje}
                     onChange={(e) => setFormData({...formData, mensaje: e.target.value})}
-                    className="w-full min-h-[150px]"
+                    className="w-full min-h-[120px]"
                     required
                   />
                 </div>
 
-                <Button 
-                  type="submit"
-                  className="w-full bg-[#F7B32B] hover:bg-[#F7B32B]/90 text-black font-semibold py-3"
-                >
-                  ENVIAR MENSAJE
-                </Button>
+                <SubmitButton />
               </form>
             </div>
           </div>
@@ -113,7 +135,7 @@ export function Contactanos() {
             <div className="flex gap-6">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" 
                 className="text-[#F7B32B] hover:text-[#F7B32B]/80">
-                <Facebook size={24}/>
+                <Facebook size={24} />
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
                 className="text-[#F7B32B] hover:text-[#F7B32B]/80">
