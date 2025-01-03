@@ -34,7 +34,6 @@ export function Contactanos() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // Verificar que el formulario es del tipo HTMLFormElement
     const formElement = e.currentTarget;
     if (!(formElement instanceof HTMLFormElement)) {
       throw new Error("El elemento actual no es un formulario válido");
@@ -67,7 +66,7 @@ export function Contactanos() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
-            <div className="relative h-[300px] w-full">
+            <div className="relative h-[400px] w-full">
               <Image
                 src="/images/contact-image.jpg"
                 alt="Asesoría personalizada"
@@ -159,3 +158,4 @@ export function Contactanos() {
     </section>
   )
 }
+

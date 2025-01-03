@@ -2,31 +2,21 @@
 
 export async function sendContactForm(formData: FormData) {
   try {
-    // Extraer los datos del formulario
-    const nombre = formData.get('nombre')
-    const email = formData.get('email')
-    const mensaje = formData.get('mensaje')
-
-    // Validación básica
-    if (!email || !mensaje) {
-      return {
-        success: false,
-        message: 'Por favor, complete todos los campos requeridos.'
+    const response = await fetch('https://formspree.io/f/mrbbopgr', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
       }
-    }
+    });
 
-    // Aquí puedes agregar la lógica para enviar el email
-    // Por ejemplo, usando un servicio de email como SendGrid, Nodemailer, etc.
-    
-    // Simulamos un delay para demostración
-    await new Promise(resolve => setTimeout(resolve, 1000))
-
-    // Por ahora, solo registramos los datos
-    console.log('Formulario recibido:', { nombre, email, mensaje })
-
-    return {
-      success: true,
-      message: '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.'
+    if (response.ok) {
+      return {
+        success: true,
+        message: '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.'
+      }
+    } else {
+      throw new Error('Failed to send the message');
     }
   } catch (error) {
     console.error('Error al enviar el formulario:', error)
