@@ -31,17 +31,24 @@ export function Contactanos() {
     mensaje: ''
   })
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const response = await sendContactForm(formData)
+
+    // Verificar que el formulario es del tipo HTMLFormElement
+    const formElement = e.currentTarget;
+    if (!(formElement instanceof HTMLFormElement)) {
+      throw new Error("El elemento actual no es un formulario válido");
+    }
+
+    const formData = new FormData(formElement);
+    const response = await sendContactForm(formData);
     
     if (response.success) {
-      toast.success(response.message)
+      toast.success(response.message);
       // Limpiar el formulario
-      setFormData({ nombre: '', email: '', mensaje: '' })
+      setFormData({ nombre: '', email: '', mensaje: '' });
     } else {
-      toast.error(response.message)
+      toast.error(response.message);
     }
   }
 
